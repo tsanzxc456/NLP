@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+        <style type="text/css">
+            .off {
+                visibility: hidden;
+            } .on {
+                visibility: visible;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = function() {
+                var timeInterval = 3; //Delay of showing the submit buttons in seconds. Set the delay that you want to use in your case.
+                if (typeof timeInterval === 'undefined' || parseInt(timeInterval) <= 0) {
+                    timeInterval = 1
+                }
+                document.getElementById('timeinfo').innerHTML = timeInterval + " Seconds more to load the submit button";
+                var si = setInterval(function() {
+                    if (timeInterval === 0) {
+                        clearInterval(si);
+                    } else {
+                        --timeInterval;
+                        if (timeInterval> 0) {
+                            document.getElementById('timeinfo').innerHTML = parseInt(timeInterval) + " Seconds more to load the submit button";
+                        } else {
+                            document.getElementById('timeinfo').className = 'off'; //Hiding the counter area.
+                        }
+                    }
+                }, 1000);
+                setTimeout(function() {
+                    document.getElementById('submit').className = 'on';
+                }, timeInterval * 1000);
+            }
+        </script>
+    </head>
+    <body>
+      <form id="mturk_form" method="post" name="mturk_form">
+      <input type="hidden" id="assignmentId" value="" name="assignmentId"/>
+
+      <h1> Tweet Here. </h1>
+      <h3> Please read the tweet above before you answer the question below !!</h3>
+      <fieldset style="font-size: 100%">
+        <h2> How much pleasure you feel about the tweet ?</h2>
+        <p><input name="Pleasure" type="radio" value="5"/>
+          <img src="https://i.ibb.co/G02HyN1/P1.png" width = "80" height = "80"></p>
+        <p><input name="Pleasure" type="radio" value="4"/>
+          <img src="https://i.ibb.co/Y3LcCkV/P4.png" width = "80" height = "80"></p>
+        <p><input name="Pleasure" type="radio" value="3"/>
+          <img src="https://i.ibb.co/jWn7j52/P3.png" width = "80" height = "80"></p>
+        <p><input name="Pleasure" type="radio" value="2"/>
+          <img src="https://i.ibb.co/BrjVmYj/P2.png" width = "80" height = "80"></p>
+        <p><input name="Pleasure" type="radio" value="1"/>
+          <img src="https://i.ibb.co/sq2jhjt/P1.png" width = "80" height = "80"></p>
+        <hr>
+        <h2> How much arousal you feel about the tweet ?</h2>
+        <p><input name="Arousal" type="radio" value="5"/>
+          <img src="https://i.ibb.co/mCt6NBd/A5.png" width = "80" height = "80"></p>
+        <p><input name="Arousal" type="radio" value="4"/>
+          <img src="https://i.ibb.co/RCPp03D/A4.png" width = "80" height = "80"></p>
+        <p><input name="Arousal" type="radio" value="3"/>
+          <img src="https://i.ibb.co/5rCgrn5/A3.png" width = "80" height = "80"></p>
+        <p><input name="Arousal" type="radio" value="2"/>
+          <img src="https://i.ibb.co/725zBh3/A2.png" width = "80" height = "80"></p>
+        <p><input name="Arousal" type="radio" value="1"/>
+          <img src="https://i.ibb.co/hHPhKR8/A1.png" width = "80" height = "80"></p>
+        <hr>
+        <h2> How much dominance you feel about the tweet ?</h2>
+        <p><input name="Dominance" type="radio" value="5"/>
+          <img src="https://i.ibb.co/N9htLwT/D5.png" width = "80" height = "80"></p>
+        <p><input name="Dominance" type="radio" value="4"/>
+          <img src="https://i.ibb.co/nRQnFRY/D4.png" width = "80" height = "80"></p>
+        <p><input name="Dominance" type="radio" value="3"/>
+          <img src="https://i.ibb.co/fQ8Tgp6/D3.png" width = "80" height = "80"></p>
+        <p><input name="Dominance" type="radio" value="2"/>
+          <img src="https://i.ibb.co/9hT64DW/D2.png" width = "80" height = "80"></p>
+        <p><input name="Dominance" type="radio" value="1"/>
+          <img src="https://i.ibb.co/kJ67B3s/D1.png" width = "80" height = "80"></p>
+      </fieldset>
+        <div id="timeinfo">
+        </div>
+          <p><input type="submit" name="submit" id="submit" value="submit" class="off"/></p>
+          </form>
+          <script language='Javascript'>turkSetAssignmentID();</script>
+        </body>
+      </html>
