@@ -21,7 +21,7 @@
   <script type="text/javascript">
     const queryString_time = window.location.search;
     const urlParams_time = new URLSearchParams(queryString_time);
-    const time_delay = urlParams_time.get('timedelay')
+    const time_delay = urlParams_time.get('time_delay')
     window.onload = function() {
       var timeInterval = time_delay; //Delay of showing the submit buttons in seconds. Set the delay that you want to use in your case.
       if (typeof timeInterval === 'undefined' || parseInt(timeInterval) <= 0) {
