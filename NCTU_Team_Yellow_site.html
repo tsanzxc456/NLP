@@ -19,11 +19,8 @@
   </style>
   <script src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js" type="text/javascript"></script>
   <script type="text/javascript">
-    const queryString_time = window.location.search;
-    const urlParams_time = new URLSearchParams(queryString_time);
-    const time_delay = urlParams_time.get('timedelay')
     window.onload = function() {
-      var timeInterval = time_delay; //Delay of showing the submit buttons in seconds. Set the delay that you want to use in your case.
+      var timeInterval = timedelay; //Delay of showing the submit buttons in seconds. Set the delay that you want to use in your case.
       if (typeof timeInterval === 'undefined' || parseInt(timeInterval) <= 0) {
         timeInterval = 1
       }
@@ -1600,6 +1597,7 @@
     const idx = urlParams_idx.get('idx');
     var myHeading = document.querySelector("h1");
     myHeading.textContent = result[idx].text;
+    var timedelay = result[idx].text.length*0.05;
   </script>
 
 </body>
